@@ -63,7 +63,7 @@
  * You can observe this property using key-value observing.
  */
 @property (nonatomic, copy) NSString *outputFileType;
-
+@property (nonatomic) BOOL cutItOut;
 /**
  * The URL of the export session’s output.
  *

@@ -28,6 +28,9 @@
     
     HBVideoRenderer *renderer;
     IBOutlet UIImageView *flourish;
+    
+    IBOutlet UIImageView *logo;
+    IBOutlet UILabel *tagline;
 }
 
 @property BOOL hasBunting;

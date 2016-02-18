@@ -84,32 +84,32 @@
 
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+}
+-(void)pushToVideo {
+   
+}
+
+-(void)viewDidAppear:(BOOL)animated {
     renderer = [[HBVideoRenderer alloc] init];
     NSString *source = [[NSBundle mainBundle] pathForResource:@"champagne_vert" ofType:@"mov"];
     
     [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *outputFile, BOOL success, NSError *error) {
-        [self pushToVideo];
+        [self showVideo:outputFile];
     }];
 }
--(void)pushToVideo {
-    renderer = Nil; // this crap should not be alive
+-(void)showVideo:(NSURL *)video {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        videoPlayer = [[HBVideoPlayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen  mainScreen].bounds.size.height)];
+        [videoPlayer loadVideoSource:video];
+        
+        [UIView animateWithDuration:.3 animations:^{
+            logo.frame = CGRectMake(logo.frame.origin.x, -150, 75, 75);
+            tagline.frame = CGRectMake(tagline.frame.origin.x, -140, tagline.frame.size.width, tagline.frame.size.height);
+        } completion:^(BOOL finished) {
+            [self.view addSubview:videoPlayer];
+        }];
+    });
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *videoPath = [NSString stringWithFormat:@"%@/hobnob.mp4",documentsDirectory];
-    
-    videoPlayer = [[HBVideoPlayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    videoPlayer.alpha = 0;
-    [self.view addSubview:videoPlayer];
-    
-    [videoPlayer loadVideoSource:[NSURL fileURLWithPath:videoPath]];
-
-    [UIView animateWithDuration:.5 animations:^{
-        videoPlayer.alpha = 1.0;
-    }];
-}
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

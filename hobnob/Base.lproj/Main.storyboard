@@ -306,6 +306,8 @@
                         <outlet property="dateTextLabel" destination="0FI-W6-ADa" id="MIV-Ay-guO"/>
                         <outlet property="dayOfWeek" destination="27u-aG-YQg" id="D6h-xR-jAX"/>
                         <outlet property="eventTitleLabel" destination="ogp-SG-WV4" id="e3m-pN-hq5"/>
+                        <outlet property="logo" destination="rJL-rZ-lDG" id="66k-vK-agj"/>
+                        <outlet property="tagline" destination="a5S-2K-3Eu" id="BBh-WQ-g3q"/>
                         <outlet property="timeLabel" destination="TWv-NT-Zic" id="OcQ-kz-iKp"/>
                         <outlet property="viewToRender" destination="AGe-fm-HOD" id="KQP-Hh-3Dg"/>
                         <segue destination="dx5-nd-nrq" kind="show" identifier="playback" id="VFW-b3-87C"/>

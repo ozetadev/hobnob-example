@@ -27,9 +27,7 @@
     theImage = [filter outputImage]; // applying filter
     
     // for memory sake I only create 1 context per render
-    if (!temporaryContext) {
-        temporaryContext = [CIContext contextWithOptions:nil];
-    }
+    temporaryContext = [CIContext contextWithOptions:nil];
     
     // picture settings
     CVPixelBufferRef pbuff = NULL;
@@ -54,7 +52,7 @@
     }
 }
 -(void)renderVideoFromSource:(NSString *)filePath withOverlay:(UIView *)overlay callback:(RenderCallback)callback {
-    
+    NSLog(@"TEST");
     // apologies for the messiness of this method -- there's a lot going on
     
     exportCallback = callback; // saving for later use
@@ -125,10 +123,10 @@
     
     [assetExport exportAsynchronouslyWithCompletionHandler:
      ^(void ) {
-         dispatch_async(dispatch_get_main_queue(), ^{
+         if (assetExport.status == AVAssetExportSessionStatusCompleted) {
              [self exportDidFinish:assetExport];
-         });
-     }
+         }
+        }
      ];
 }
 
@@ -167,13 +165,11 @@
     
     [encoder exportAsynchronouslyWithCompletionHandler:^
      {
+         encoder.cutItOut = TRUE;
          if (encoder.status == AVAssetExportSessionStatusCompleted)
          {
              NSLog(@"Video export succeeded");
-             [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                 [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:finalOutput];
-             } completionHandler:^(BOOL success, NSError *error) {
-             }];
+             exportCallback(finalOutput, YES, Nil); // no errors to be seen here
          }
          else if (encoder.status == AVAssetExportSessionStatusCancelled)
          {

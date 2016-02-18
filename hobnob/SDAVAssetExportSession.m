@@ -54,7 +54,6 @@
 
 - (void)exportAsynchronouslyWithCompletionHandler:(void (^)())handler
 {
-    
     NSParameterAssert(handler != nil);
     [self cancelExport];
     self.completionHandler = handler;
