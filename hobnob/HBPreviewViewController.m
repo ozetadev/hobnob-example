@@ -16,6 +16,10 @@
 @implementation HBPreviewViewController
 @synthesize hasBunting = _hasBunting, titleOfEvent = _titleOfEvent, eventLocation = _eventLocation, startDate = _startDate, endDate = _endDate;
 
+-(void)userClosed {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [videoPlayer loadVideoSource:Nil];
+}
 #pragma mark getters
 -(NSString *)titleOfEvent {
     return _titleOfEvent;
@@ -131,12 +135,10 @@
 }
 
 -(void)shareClicked {
-    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[[AVURLAsset assetWithURL:outputFile]] applicationActivities:nil];
-    [self presentViewController:activityController animated:YES completion:nil];
-}
-
--(void)userClosed {
-    
+    NSArray *activityItems = @[outputFile];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    [activityViewController setValue:@"Video" forKey:@"subject"];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 #pragma mark date utilities

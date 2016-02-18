@@ -71,6 +71,12 @@
     shareButton.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.height-20-25, 25, 33);
     [self addSubview:shareButton];
     [shareButton addTarget:self action:@selector(shareClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    xButton = [[UIButton alloc] initWithFrame:CGRectMake(25, 30, 25, 25)];
+    [xButton setImage:[UIImage imageNamed:@"x"] forState:UIControlStateNormal];
+    [self addSubview:xButton];
+    
+    [xButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)shareClicked:(id)sender {
@@ -79,6 +85,11 @@
     }
 }
 
+-(void)close {
+    if (_delegate) {
+        [_delegate userClosed];
+    }
+}
 -(id)init {
     self = [super init];
     

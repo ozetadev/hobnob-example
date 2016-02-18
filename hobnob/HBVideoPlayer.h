@@ -23,6 +23,8 @@
     AVPlayer *player;
     UIButton *shareButton;
     AVURLAsset *assetToPlay;
+    
+    UIButton *xButton;
 }
 
 @property (weak) id<HBVideoPlayerDelegate> delegate;
