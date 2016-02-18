@@ -77,7 +77,7 @@
     }
     else {
         dayOfWeek.text = [NSString stringWithFormat:@"%@ %@", [self weekdayFromDate:_startDate], [self timeFromDate:_startDate]];
-        dayOfWeek.text = [NSString stringWithFormat:@"TILL %@ %@", [self weekdayFromDate:_endDate], [self timeFromDate:_endDate]];
+        dayOfWeek.text = [NSString stringWithFormat:@"TILL %@-%@", [self restOfDateFromDate:_startDate], [self getDateFromDate:_endDate]];
     }
 }
 
@@ -92,6 +92,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSString *)getDateFromDate:(NSDate *)date {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    
+    NSInteger day = [components day];
+    return [NSString stringWithFormat:@"%lu", day];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
