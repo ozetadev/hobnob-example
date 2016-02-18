@@ -258,6 +258,7 @@
                         <outlet property="dateLabel" destination="0FI-W6-ADa" id="U8P-qW-fK4"/>
                         <outlet property="dayOfWeek" destination="27u-aG-YQg" id="D6h-xR-jAX"/>
                         <outlet property="eventTitle" destination="ogp-SG-WV4" id="EyF-G0-6Xi"/>
+                        <outlet property="eventTitleLabel" destination="ogp-SG-WV4" id="e3m-pN-hq5"/>
                         <outlet property="timeLabel" destination="TWv-NT-Zic" id="OcQ-kz-iKp"/>
                         <outlet property="viewToRender" destination="AGe-fm-HOD" id="KQP-Hh-3Dg"/>
                     </connections>

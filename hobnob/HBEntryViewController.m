@@ -37,7 +37,9 @@
 }
 
 -(IBAction)pickStartDate:(id)sender {
-    
+    [whereField resignFirstResponder];
+    [whatField resignFirstResponder];
+
     // bring up our custom date picker
     datePicker = [[HBDatePicker alloc] init];
     datePicker.isStartDate = TRUE;
@@ -53,6 +55,8 @@
     
 }
 -(IBAction)pickEndDate:(id)sender {
+    [whereField resignFirstResponder];
+    [whatField resignFirstResponder];
     
     // bring up our custom date picker (again)
     datePicker = [[HBDatePicker alloc] init];

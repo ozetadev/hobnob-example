@@ -16,6 +16,7 @@
 @implementation HBPreviewViewController
 @synthesize hasBunting = _hasBunting, eventTitle = _eventTitle, eventLocation = _eventLocation, startDate = _startDate, endDate = _endDate;
 
+#pragma mark getters
 -(NSString *)eventTitle {
     return _eventTitle;
 }
@@ -32,6 +33,28 @@
     return _endDate;
 }
 
+#pragma mark setters
+
+-(void)setEventTitle:(NSString *)eventTitle {
+    _eventTitle = eventTitle;
+    eventTitleLabel.text = _eventTitle;
+}
+
+-(void)setEventLocation:(NSString *)eventLocation {
+    _eventLocation = eventLocation;
+}
+
+-(void)setStartDate:(NSDate *)startDate {
+    _startDate = startDate;
+    dayOfWeek.text = [self weekdayFromDate:startDate];
+}
+
+-(void)setEndDate:(NSDate *)endDate {
+    _endDate = endDate;
+}
+
+#pragma mark utility methods
+
 -(void)setHasBunting:(BOOL)hasBunting {
     _hasBunting = hasBunting;
 }
@@ -46,7 +69,7 @@
     [self.navigationController.navigationBar setHidden:TRUE];
     
     
-    [eventTitle setAdjustsFontSizeToFitWidth:YES];
+    [eventTitleLabel setAdjustsFontSizeToFitWidth:YES];
 }
 
 - (void)didReceiveMemoryWarning {

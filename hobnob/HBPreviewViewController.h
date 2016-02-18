@@ -16,7 +16,7 @@
     
     // preview fields
     IBOutlet UILabel *dayOfWeek;
-    IBOutlet UILabel *eventTitle;
+    IBOutlet UILabel *eventTitleLabel;
     IBOutlet UILabel *timeLabel;
     IBOutlet UILabel *dateLabel;
     IBOutlet UITextView *address;
