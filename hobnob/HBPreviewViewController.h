@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "HBVideoPlayer.h"
 #import "HBVideoRenderer.h"
-
+\
 @interface HBPreviewViewController : UIViewController
 {
     IBOutlet UIView *viewToRender;

@@ -23,6 +23,9 @@ typedef void (^RenderCallback)(NSURL *outputFile, BOOL success, NSError *error);
     SDAVAssetExportSession *encoder;
     NSURL *finalOutput;
     CIContext *temporaryContext;
+    BOOL ranOnce;
+    CIContext *coreImageContext;
+    EAGLContext *context;
 }
 
 -(void)renderVideoFromSource:(NSString *)source withOverlay:(UIView *)overlay callback:(RenderCallback)callback;

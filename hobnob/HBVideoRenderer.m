@@ -10,49 +10,6 @@
 
 @implementation HBVideoRenderer
 
-- (void)exportSession:(SDAVAssetExportSession *)exportSession renderFrame:(CVPixelBufferRef)pixelBuffer withPresentationTime:(CMTime)presentationTime toBuffer:(CVPixelBufferRef)renderBuffer {
-    
-    /* 
-        This is custom written to add the photo effect that you guys use on your invitations. It essentially takes each frame (pixel buffer) and then applies the filter, and then appends it to the video. This is not a particularly efficient approach, if I were to do this with more time I would use an OpenGL alternative, such as GPUImage
-     */
-    
-    /*
-        As a note, Core Image is notoriously slow compared to its counterparts of GPUImage and Metal, but I wanted to perfectly emulated your real Instant Filter
-     
-     */
-    
-    CIImage *theImage = [CIImage imageWithCVPixelBuffer:pixelBuffer]; // image from buffer
-    CIFilter *filter = [CIFilter filterWithName:@"CIPhotoEffectInstant"
-                                  keysAndValues: kCIInputImageKey, theImage, nil]; // filter to apply
-    theImage = [filter outputImage]; // applying filter
-
-    // for memory sake I only create 1 context per render
-    if (!temporaryContext) {
-        temporaryContext = [CIContext contextWithOptions:nil];
-    }
-
-    // picture settings
-    CVPixelBufferRef pbuff = NULL;
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithBool:YES], kCVPixelBufferCGImageCompatibilityKey,
-                             [NSNumber numberWithBool:YES], kCVPixelBufferCGBitmapContextCompatibilityKey,
-                             nil];
-    
-    CVReturn status = CVPixelBufferCreate(kCFAllocatorDefault,
-                                          theImage.extent.size.width,
-                                          theImage.extent.size.height,
-                                          kCVPixelFormatType_32BGRA,
-                                          (__bridge CFDictionaryRef)(options),
-                                          &pbuff);
-    
-    // write rendered image to pixelBuffer
-    if (status == kCVReturnSuccess) {
-        [temporaryContext render:theImage
-                 toCVPixelBuffer:renderBuffer
-                          bounds:theImage.extent
-                      colorSpace:CGColorSpaceCreateDeviceRGB()];
-    }
-}
 -(void)renderVideoFromSource:(NSString *)filePath withOverlay:(UIView *)overlay callback:(RenderCallback)callback {
     
     // apologies for the messiness of this method -- there's a lot going on
@@ -125,68 +82,13 @@
     
     [assetExport exportAsynchronouslyWithCompletionHandler:
      ^(void ) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self exportDidFinish:assetExport];
-         });
+         
+         if (assetExport.status == AVAssetExportSessionStatusCompleted)
+             exportCallback(exportURL, YES, Nil);
      }
      ];
 }
 
--(void)exportDidFinish:(AVAssetExportSession*)session
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* VideoName = [NSString stringWithFormat:@"%@/final.mp4",documentsDirectory];
-    
-    [[NSFileManager defaultManager] removeItemAtPath:VideoName error:Nil];
-    
-    finalOutput = [NSURL fileURLWithPath:VideoName];
-    
-    encoder = [SDAVAssetExportSession.alloc initWithAsset:[AVURLAsset assetWithURL:exportURL]];
-    encoder.outputFileType = AVFileTypeMPEG4;
-    encoder.outputURL = finalOutput;
-    encoder.delegate = self;
-    encoder.videoSettings = @
-    {
-    AVVideoCodecKey: AVVideoCodecH264,
-    AVVideoWidthKey: @1080,
-    AVVideoHeightKey: @1920,
-    AVVideoCompressionPropertiesKey: @
-        {
-        AVVideoAverageBitRateKey: @6000000,
-        AVVideoProfileLevelKey: AVVideoProfileLevelH264High40,
-        },
-    };
-    encoder.audioSettings = @
-    {
-    AVFormatIDKey: @(kAudioFormatMPEG4AAC),
-    AVNumberOfChannelsKey: @2,
-    AVSampleRateKey: @44100,
-    AVEncoderBitRateKey: @128000,
-    };
-    
-    [encoder exportAsynchronouslyWithCompletionHandler:^
-    {
-        if (encoder.status == AVAssetExportSessionStatusCompleted)
-        {
-            NSLog(@"Video export succeeded");
-            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:finalOutput];
-            } completionHandler:^(BOOL success, NSError *error) {
-                exportCallback(exportURL, success, error);
-            }];
-        }
-        else if (encoder.status == AVAssetExportSessionStatusCancelled)
-        {
-            NSLog(@"Video export cancelled");
-        }
-        else
-        {
-            NSLog(@"Video export failed with error: %@", encoder.error.localizedDescription);
-        }
-    }];
-    
-}
 
 
 // creates image from CG context on view, makes sure it doesn't come out opaque

@@ -17,6 +17,7 @@
             <string>OstrichSans-Medium</string>
             <string>OstrichSans-Medium</string>
             <string>OstrichSans-Medium</string>
+            <string>OstrichSans-Medium</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -183,28 +184,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGe-fm-HOD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DAY OF THE WEEK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27u-aG-YQg">
-                                        <rect key="frame" x="20" y="234" width="545" height="45"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY OF THE WEEK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27u-aG-YQg">
+                                        <rect key="frame" x="20" y="225" width="169" height="33"/>
                                         <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="33"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Phil's Bar Mitzvah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogp-SG-WV4">
-                                        <rect key="frame" x="20" y="273" width="560" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phil's Bar Mitzvah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogp-SG-WV4">
+                                        <rect key="frame" x="20" y="252" width="560" height="60"/>
                                         <fontDescription key="fontDescription" name="GrandHotel-Regular" family="Grand Hotel" pointSize="44"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FI-W6-ADa">
-                                        <rect key="frame" x="205" y="335" width="375" height="62"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="IMm-Px-a0P"/>
-                                            <constraint firstAttribute="height" constant="62" id="nXd-cX-AjW"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="GrandHotel-Regular" family="Grand Hotel" pointSize="44"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bunting_flyer_flourish.png" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-yx-Qrl">
+                                        <rect key="frame" x="267" y="351" width="83" height="29"/>
+                                    </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="VDQ-eO-hj1">
                                         <rect key="frame" x="340" y="402" width="240" height="128"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -218,17 +212,24 @@
                                         <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="30"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TIME OF DAY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWv-NT-Zic">
-                                        <rect key="frame" x="191" y="329" width="389" height="43"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME OF DAY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWv-NT-Zic">
+                                        <rect key="frame" x="467" y="308" width="113" height="32"/>
                                         <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="32"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bunting_flyer_flourish.png" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-yx-Qrl">
-                                        <rect key="frame" x="312" y="351" width="84" height="29"/>
-                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FI-W6-ADa">
+                                        <rect key="frame" x="205" y="335" width="375" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="IMm-Px-a0P"/>
+                                            <constraint firstAttribute="height" constant="62" id="nXd-cX-AjW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GrandHotel-Regular" family="Grand Hotel" pointSize="44"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="VDQ-eO-hj1" secondAttribute="bottom" constant="70" id="03b-02-GgP"/>
                                     <constraint firstAttribute="trailing" secondItem="ogp-SG-WV4" secondAttribute="trailing" constant="20" id="7Dw-ye-BNr"/>
@@ -238,7 +239,7 @@
                                     <constraint firstItem="ogp-SG-WV4" firstAttribute="leading" secondItem="AGe-fm-HOD" secondAttribute="leading" constant="20" id="cGv-9f-qYI"/>
                                     <constraint firstItem="TWv-NT-Zic" firstAttribute="top" secondItem="ogp-SG-WV4" secondAttribute="bottom" constant="-4" id="eb8-Bv-7Ga"/>
                                     <constraint firstAttribute="trailing" secondItem="VDQ-eO-hj1" secondAttribute="trailing" constant="20" id="f1S-LM-z6Q"/>
-                                    <constraint firstAttribute="trailing" secondItem="c7w-yx-Qrl" secondAttribute="trailing" constant="204" id="h27-m8-R1m"/>
+                                    <constraint firstAttribute="trailing" secondItem="c7w-yx-Qrl" secondAttribute="trailing" constant="250" id="h27-m8-R1m"/>
                                     <constraint firstItem="TWv-NT-Zic" firstAttribute="top" secondItem="27u-aG-YQg" secondAttribute="bottom" constant="50" id="mBi-DT-lVD"/>
                                     <constraint firstItem="VDQ-eO-hj1" firstAttribute="top" secondItem="0FI-W6-ADa" secondAttribute="bottom" constant="5" id="vtd-Er-odM"/>
                                     <constraint firstItem="c7w-yx-Qrl" firstAttribute="baseline" secondItem="0FI-W6-ADa" secondAttribute="baseline" id="vxF-Ld-2Ox"/>
@@ -253,12 +254,50 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72i-c1-fzN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hob.png" translatesAutoresizingMaskIntoConstraints="NO" id="rJL-rZ-lDG">
+                                        <rect key="frame" x="250" y="117" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="RgT-7l-qDc"/>
+                                            <constraint firstAttribute="height" constant="100" id="kTK-FH-sSV"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please hold while we create your invite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5S-2K-3Eu">
+                                        <rect key="frame" x="119" y="231" width="363" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="ppJ-Ih-O8X"/>
+                                            <constraint firstAttribute="width" constant="363" id="ujt-Jh-sz1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Xly-7L-gVE">
+                                        <rect key="frame" x="290" y="157" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="a5S-2K-3Eu" firstAttribute="top" secondItem="rJL-rZ-lDG" secondAttribute="bottom" constant="14" id="J5E-36-k7M"/>
+                                    <constraint firstItem="rJL-rZ-lDG" firstAttribute="top" secondItem="72i-c1-fzN" secondAttribute="top" constant="117" id="Tkf-Fo-0CK"/>
+                                    <constraint firstItem="Xly-7L-gVE" firstAttribute="top" secondItem="72i-c1-fzN" secondAttribute="top" constant="157" id="ZHX-D9-WWo"/>
+                                    <constraint firstItem="Xly-7L-gVE" firstAttribute="centerX" secondItem="72i-c1-fzN" secondAttribute="centerX" id="gNM-6O-Q3C"/>
+                                    <constraint firstItem="rJL-rZ-lDG" firstAttribute="centerX" secondItem="72i-c1-fzN" secondAttribute="centerX" id="hWO-tQ-1GI"/>
+                                    <constraint firstItem="a5S-2K-3Eu" firstAttribute="centerX" secondItem="72i-c1-fzN" secondAttribute="centerX" id="nZX-ce-Dev"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ujj-wR-gob" firstAttribute="top" secondItem="72i-c1-fzN" secondAttribute="bottom" id="2gL-QX-jnC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AGe-fm-HOD" secondAttribute="trailing" constant="-20" id="3gW-c3-m8l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="72i-c1-fzN" secondAttribute="trailing" constant="-20" id="5Yq-Q9-CPc"/>
                             <constraint firstItem="AGe-fm-HOD" firstAttribute="leading" secondItem="kc3-cc-xXt" secondAttribute="leadingMargin" constant="-20" id="JLp-sF-1Yn"/>
+                            <constraint firstItem="72i-c1-fzN" firstAttribute="leading" secondItem="kc3-cc-xXt" secondAttribute="leadingMargin" constant="-20" id="LOa-Tp-ie4"/>
                             <constraint firstItem="Ujj-wR-gob" firstAttribute="top" secondItem="AGe-fm-HOD" secondAttribute="bottom" id="LxZ-1s-ISO"/>
+                            <constraint firstItem="72i-c1-fzN" firstAttribute="top" secondItem="kc3-cc-xXt" secondAttribute="topMargin" id="U1P-yE-tpM"/>
                             <constraint firstItem="AGe-fm-HOD" firstAttribute="top" secondItem="kc3-cc-xXt" secondAttribute="topMargin" id="Vf1-vl-vha"/>
                         </constraints>
                     </view>
@@ -269,11 +308,30 @@
                         <outlet property="eventTitleLabel" destination="ogp-SG-WV4" id="e3m-pN-hq5"/>
                         <outlet property="timeLabel" destination="TWv-NT-Zic" id="OcQ-kz-iKp"/>
                         <outlet property="viewToRender" destination="AGe-fm-HOD" id="KQP-Hh-3Dg"/>
+                        <segue destination="dx5-nd-nrq" kind="show" identifier="playback" id="VFW-b3-87C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwJ-Ck-Bl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="1025"/>
+        </scene>
+        <!--Playback Controller-->
+        <scene sceneID="9GO-0Y-XIg">
+            <objects>
+                <viewController id="dx5-nd-nrq" customClass="HBPlaybackController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rlC-RY-TxE"/>
+                        <viewControllerLayoutGuide type="bottom" id="SI7-EU-Tcp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eHl-rO-gQh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tP2-9z-LwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1367" y="1254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="99h-Oc-fmT">

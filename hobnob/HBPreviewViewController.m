@@ -76,18 +76,40 @@
         timeLabel.text = [self timeFromDate:_startDate];
     }
     else {
-        dayOfWeek.text = [NSString stringWithFormat:@"%@ %@", [self weekdayFromDate:_startDate], [self timeFromDate:_startDate]];
-        dayOfWeek.text = [NSString stringWithFormat:@"TILL %@-%@", [self restOfDateFromDate:_startDate], [self getDateFromDate:_endDate]];
+        dayOfWeek.text = [NSString stringWithFormat:@"%@-%@", [self weekdayFromDate:_startDate], [self timeFromDate:_startDate]];
+        timeLabel.text = [NSString stringWithFormat:@"TILL %@-%@", [self weekdayFromDate:_endDate], [self timeFromDate:_endDate]];
+        dateTextLabel.text = [NSString stringWithFormat:@"%@-%@", [self restOfDateFromDate:_startDate], [self getDateFromDate:_endDate]];
     }
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     renderer = [[HBVideoRenderer alloc] init];
     NSString *source = [[NSBundle mainBundle] pathForResource:@"champagne_vert" ofType:@"mov"];
     
     [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *outputFile, BOOL success, NSError *error) {
-        NSLog(@"WE STILL GOT IT");
+        [self pushToVideo];
     }];
+}
+-(void)pushToVideo {
+    renderer = Nil; // this crap should not be alive
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *videoPath = [NSString stringWithFormat:@"%@/hobnob.mp4",documentsDirectory];
+    
+    videoPlayer = [[HBVideoPlayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    videoPlayer.alpha = 0;
+    [self.view addSubview:videoPlayer];
+    
+    [videoPlayer loadVideoSource:[NSURL fileURLWithPath:videoPath]];
+
+    [UIView animateWithDuration:.5 animations:^{
+        videoPlayer.alpha = 1.0;
+    }];
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -95,7 +117,7 @@
 }
 
 -(NSString *)getDateFromDate:(NSDate *)date {
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
     
     NSInteger day = [components day];
     return [NSString stringWithFormat:@"%lu", day];

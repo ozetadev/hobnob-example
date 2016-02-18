@@ -36,6 +36,7 @@
     playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
     playerLayer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     [self.layer insertSublayer:playerLayer atIndex:0];
+    [player play];
 }
 
 -(void)finishedPlaying:(AVPlayerItem *)sender {
