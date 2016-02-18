@@ -37,6 +37,9 @@
 }
 
 -(IBAction)pickStartDate:(id)sender {
+    if (datePicker)
+        return;
+    
     [whereField resignFirstResponder];
     [whatField resignFirstResponder];
 
@@ -55,6 +58,10 @@
     
 }
 -(IBAction)pickEndDate:(id)sender {
+    
+    if (datePicker)
+        return;
+    
     [whereField resignFirstResponder];
     [whatField resignFirstResponder];
     
@@ -82,6 +89,7 @@
     }
     
     [self hideDatePicker];
+    
 }
 
 -(void)hideDatePicker {

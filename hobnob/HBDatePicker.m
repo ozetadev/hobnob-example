@@ -20,6 +20,7 @@
     
     // just UI setup for our code picker
     datePicker.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, datePicker.frame.size.width);
+    datePicker.backgroundColor = [UIColor colorWithHue:0.603 saturation:0.304 brightness:0.271 alpha:1.000];
     datePicker = [[UIDatePicker alloc] init];
     [datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
     self.backgroundColor = [UIColor blackColor];
