@@ -53,9 +53,6 @@
                                 <rect key="frame" x="20" y="241" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                <connections>
-                                    <outlet property="delegate" destination="z3p-WO-t7v" id="hpp-sQ-fim"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where is your shindig?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-X2-7xf">
                                 <rect key="frame" x="20" y="285" width="560" height="30"/>
@@ -208,9 +205,6 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bunting_flyer_flourish.png" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-yx-Qrl">
-                                        <rect key="frame" x="250" y="396" width="84" height="29"/>
-                                    </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="VDQ-eO-hj1">
                                         <rect key="frame" x="340" y="402" width="240" height="128"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -230,16 +224,21 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bunting_flyer_flourish.png" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-yx-Qrl">
+                                        <rect key="frame" x="312" y="351" width="84" height="29"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="VDQ-eO-hj1" secondAttribute="bottom" constant="70" id="03b-02-GgP"/>
                                     <constraint firstAttribute="trailing" secondItem="ogp-SG-WV4" secondAttribute="trailing" constant="20" id="7Dw-ye-BNr"/>
-                                    <constraint firstItem="0FI-W6-ADa" firstAttribute="top" secondItem="TWv-NT-Zic" secondAttribute="bottom" constant="2" id="MGK-yI-cru"/>
+                                    <constraint firstItem="0FI-W6-ADa" firstAttribute="top" secondItem="TWv-NT-Zic" secondAttribute="bottom" constant="-5" id="MGK-yI-cru"/>
                                     <constraint firstAttribute="trailing" secondItem="TWv-NT-Zic" secondAttribute="trailing" constant="20" id="TVN-ly-XDm"/>
+                                    <constraint firstItem="VDQ-eO-hj1" firstAttribute="top" secondItem="c7w-yx-Qrl" secondAttribute="bottom" constant="22" id="X6t-Gk-JJj"/>
                                     <constraint firstItem="ogp-SG-WV4" firstAttribute="leading" secondItem="AGe-fm-HOD" secondAttribute="leading" constant="20" id="cGv-9f-qYI"/>
                                     <constraint firstItem="TWv-NT-Zic" firstAttribute="top" secondItem="ogp-SG-WV4" secondAttribute="bottom" constant="-4" id="eb8-Bv-7Ga"/>
                                     <constraint firstAttribute="trailing" secondItem="VDQ-eO-hj1" secondAttribute="trailing" constant="20" id="f1S-LM-z6Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="c7w-yx-Qrl" secondAttribute="trailing" constant="204" id="h27-m8-R1m"/>
                                     <constraint firstItem="TWv-NT-Zic" firstAttribute="top" secondItem="27u-aG-YQg" secondAttribute="bottom" constant="50" id="mBi-DT-lVD"/>
                                     <constraint firstItem="VDQ-eO-hj1" firstAttribute="top" secondItem="0FI-W6-ADa" secondAttribute="bottom" constant="5" id="vtd-Er-odM"/>
                                     <constraint firstItem="c7w-yx-Qrl" firstAttribute="baseline" secondItem="0FI-W6-ADa" secondAttribute="baseline" id="vxF-Ld-2Ox"/>
@@ -247,6 +246,12 @@
                                     <constraint firstItem="0FI-W6-ADa" firstAttribute="leading" secondItem="c7w-yx-Qrl" secondAttribute="trailing" constant="-129" id="xqr-pU-ILs"/>
                                     <constraint firstAttribute="trailing" secondItem="0FI-W6-ADa" secondAttribute="trailing" constant="20" id="zW9-en-PTL"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="xqr-pU-ILs"/>
+                                        <exclude reference="vxF-Ld-2Ox"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

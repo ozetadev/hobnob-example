@@ -75,6 +75,10 @@
         dayOfWeek.text = [self weekdayFromDate:_startDate];
         timeLabel.text = [self timeFromDate:_startDate];
     }
+    else {
+        dayOfWeek.text = [NSString stringWithFormat:@"%@ %@", [self weekdayFromDate:_startDate], [self timeFromDate:_startDate]];
+        dayOfWeek.text = [NSString stringWithFormat:@"TILL %@ %@", [self weekdayFromDate:_endDate], [self timeFromDate:_endDate]];
+    }
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -123,5 +127,4 @@
     
     return time;
 }
-
 @end

@@ -27,6 +27,7 @@
     IBOutlet UIImageView *loadingScrum;
     
     HBVideoRenderer *renderer;
+    IBOutlet UIImageView *flourish;
 }
 
 @property BOOL hasBunting;
