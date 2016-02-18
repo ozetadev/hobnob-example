@@ -77,6 +77,14 @@
     }
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    renderer = [[HBVideoRenderer alloc] init];
+    NSString *source = [[NSBundle mainBundle] pathForResource:@"champagne_vert" ofType:@"mov"];
+    
+    [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *outputFile, BOOL success, NSError *error) {
+        NSLog(@"WE STILL GOT IT");
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -104,9 +112,16 @@
 -(NSString *)timeFromDate:(NSDate *)date {
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    timeFormatter.dateFormat = @"H";
+    timeFormatter.dateFormat = @"hh";
     
-   return [[timeFormatter stringFromDate: date] stringByAppendingString:@" O'CLOCK"];
+   NSString *time = [[timeFormatter stringFromDate: date] stringByAppendingString:@" O'CLOCK"];
+    
+    // fixed leading zeros
+    if ([[time substringToIndex:1] isEqualToString:@"0"]) {
+        time = [time substringFromIndex:1];
+    }
+    
+    return time;
 }
 
 @end

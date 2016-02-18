@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "HBVideoPlayer.h"
+#import "HBVideoRenderer.h"
 
 @interface HBPreviewViewController : UIViewController
 {
@@ -24,6 +25,8 @@
     // video playback
     HBVideoPlayer *videoPlayer;
     IBOutlet UIImageView *loadingScrum;
+    
+    HBVideoRenderer *renderer;
 }
 
 @property BOOL hasBunting;
