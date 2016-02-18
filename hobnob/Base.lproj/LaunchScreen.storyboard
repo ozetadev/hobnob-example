@@ -17,14 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oat-cf-UYE">
-                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hob.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oat-cf-UYE">
+                                <rect key="frame" x="263" y="262" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="8cl-YA-ooG"/>
+                                    <constraint firstAttribute="height" constant="75" id="BPv-eL-FmQ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Oat-cf-UYE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Y4m-oQ-o1J"/>
-                            <constraint firstItem="Oat-cf-UYE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cjz-bv-3JF"/>
+                            <constraint firstItem="Oat-cf-UYE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="u7F-bL-43e"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -34,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo.png" width="100" height="100"/>
+        <image name="hob.png" width="100" height="100"/>
     </resources>
 </document>

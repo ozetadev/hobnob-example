@@ -11,6 +11,7 @@
 
 /*
     Wrapper around video playback functions. Don't want to bloat the controllers.
+    This video player can play any video that apple supports, and wraps together player, asset, and player layer
  */
 
 @interface HBVideoPlayer : UIView

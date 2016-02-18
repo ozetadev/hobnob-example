@@ -27,4 +27,8 @@
 }
 
 @property BOOL hasBunting;
+@property (nonatomic, retain) NSString *eventTitle;
+@property (nonatomic, retain) NSString *eventLocation;
+@property (nonatomic, retain) NSDate *startDate;
+@property (nonatomic, retain) NSDate *endDate;
 @end

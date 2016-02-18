@@ -14,7 +14,23 @@
 @end
 
 @implementation HBPreviewViewController
-@synthesize hasBunting = _hasBunting;
+@synthesize hasBunting = _hasBunting, eventTitle = _eventTitle, eventLocation = _eventLocation, startDate = _startDate, endDate = _endDate;
+
+-(NSString *)eventTitle {
+    return _eventTitle;
+}
+
+-(NSString *)eventLocation {
+    return _eventLocation;
+}
+
+-(NSDate *)startDate {
+    return _startDate;
+}
+
+-(NSDate *)endDate {
+    return _endDate;
+}
 
 -(void)setHasBunting:(BOOL)hasBunting {
     _hasBunting = hasBunting;
@@ -38,17 +54,15 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    /*
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"champagne_vert" ofType:@"mov"];
-    
-    HBVideoRenderer *renderer = [[HBVideoRenderer alloc] init];
-    
-    [renderer renderVideoFromSource:path withOverlay:viewToRender callback:^(NSURL *outputFile, BOOL success, NSError *error) {
-        NSLog(@"BOOM");
-    }];
-     */
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
+-(NSString *)weekdayFromDate:(NSDate *)date {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE"];
+    return [dateFormatter stringFromDate:date];
+}
 
 @end

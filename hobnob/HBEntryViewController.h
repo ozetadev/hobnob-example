@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "HBDatePicker.h"
+#import "HBPreviewViewController.h" // just for passing off information
+/*
+    User input controller, passes off data to he rendered
+ */
 
 @interface HBEntryViewController : UIViewController <HBDatePickerDelegate>
 {

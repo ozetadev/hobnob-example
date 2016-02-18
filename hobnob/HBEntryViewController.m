@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = TRUE;
     
+    // just trying to make it pretty :)
     inputView.layer.cornerRadius = 8.0;
     startButton.layer.cornerRadius = 4.0;
     endButton.layer.cornerRadius = 4.0;
@@ -36,6 +37,8 @@
 }
 
 -(IBAction)pickStartDate:(id)sender {
+    
+    // bring up our custom date picker
     datePicker = [[HBDatePicker alloc] init];
     datePicker.isStartDate = TRUE;
     datePicker.delegate = self;
@@ -50,6 +53,8 @@
     
 }
 -(IBAction)pickEndDate:(id)sender {
+    
+    // bring up our custom date picker (again)
     datePicker = [[HBDatePicker alloc] init];
     datePicker.delegate = self;
     datePicker.isStartDate = FALSE;
@@ -64,6 +69,7 @@
 
 -(void)datePickerEndedWithDate:(NSDate *)date {
     
+    // both date pickers call same delegate method, here we decide what to store
     if (datePicker.isStartDate) {
         [self processStartDate:date];
     }
@@ -71,6 +77,10 @@
         [self processEndDate:date];
     }
     
+    [self hideDatePicker];
+}
+
+-(void)hideDatePicker {
     [UIView animateWithDuration:.25 animations:^{
         datePicker.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height+100, [UIScreen mainScreen].bounds.size.width, datePicker.frame.size.height);
     } completion:^(BOOL finished) {
@@ -78,15 +88,18 @@
     }];
 }
 -(IBAction)previewInvite:(id)sender {
+    HBPreviewViewController *previewView = (HBPreviewViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"preview"];
+    
+    previewView.title = whatField.text;
+    previewView.startDate = startDate;
+    previewView.endDate = endDate;
+    previewView.eventLocation = whereField.text;
+    
+    [self.navigationController pushViewController:previewView animated:YES];
     
 }
 -(void)datePickerCancelled {
-    [UIView animateWithDuration:.25 animations:^{
-        datePicker.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height+100, [UIScreen mainScreen].bounds.size.width, datePicker.frame.size.height);
-    } completion:^(BOOL finished) {
-        datePicker = Nil;
-    }];
-    
+    [self hideDatePicker];
 }
 
 -(void)processStartDate:(NSDate *)date {

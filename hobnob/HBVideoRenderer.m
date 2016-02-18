@@ -15,15 +15,23 @@
     /* 
         This is custom written to add the photo effect that you guys use on your invitations. It essentially takes each frame (pixel buffer) and then applies the filter, and then appends it to the video. This is not a particularly efficient approach, if I were to do this with more time I would use an OpenGL alternative, such as GPUImage
      */
-    CIImage *theImage = [CIImage imageWithCVPixelBuffer:pixelBuffer];
+    
+    /*
+        As a note, Core Image is notoriously slow compared to its counterparts of GPUImage and Metal, but I wanted to perfectly emulated your real Instant Filter
+     
+     */
+    
+    CIImage *theImage = [CIImage imageWithCVPixelBuffer:pixelBuffer]; // image from buffer
     CIFilter *filter = [CIFilter filterWithName:@"CIPhotoEffectInstant"
-                                  keysAndValues: kCIInputImageKey, theImage, nil];
-    theImage = [filter outputImage];
+                                  keysAndValues: kCIInputImageKey, theImage, nil]; // filter to apply
+    theImage = [filter outputImage]; // applying filter
 
+    // for memory sake I only create 1 context per render
     if (!temporaryContext) {
         temporaryContext = [CIContext contextWithOptions:nil];
     }
 
+    // picture settings
     CVPixelBufferRef pbuff = NULL;
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithBool:YES], kCVPixelBufferCGImageCompatibilityKey,
@@ -36,6 +44,8 @@
                                           kCVPixelFormatType_32BGRA,
                                           (__bridge CFDictionaryRef)(options),
                                           &pbuff);
+    
+    // write rendered image to pixelBuffer
     if (status == kCVReturnSuccess) {
         [temporaryContext render:theImage
                  toCVPixelBuffer:renderBuffer

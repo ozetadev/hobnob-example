@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4eg-BN-rK9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sTT-uu-849">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -11,7 +11,6 @@
             <string>GrandHotel-Regular</string>
         </mutableArray>
         <mutableArray key="ostrich-regular.ttf">
-            <string>OstrichSans-Medium</string>
             <string>OstrichSans-Medium</string>
             <string>OstrichSans-Medium</string>
             <string>OstrichSans-Medium</string>
@@ -172,7 +171,7 @@
         <!--Preview View Controller-->
         <scene sceneID="pee-9I-DfV">
             <objects>
-                <viewController id="4eg-BN-rK9" customClass="HBPreviewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="preview" id="4eg-BN-rK9" customClass="HBPreviewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TmE-ru-z8V"/>
                         <viewControllerLayoutGuide type="bottom" id="Ujj-wR-gob"/>
@@ -196,7 +195,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day of the Month" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FI-W6-ADa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FI-W6-ADa">
                                         <rect key="frame" x="205" y="335" width="375" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="375" id="IMm-Px-a0P"/>
@@ -228,47 +227,13 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptO-Ov-yQf">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hob.png" translatesAutoresizingMaskIntoConstraints="NO" id="3HA-Lq-b3s">
-                                                <rect key="frame" x="263" y="176" width="75" height="75"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="W5c-Gw-yX6"/>
-                                                    <constraint firstAttribute="width" constant="75" id="YAB-O0-lmT"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="please wait while we render your video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbN-Hr-Kug">
-                                                <rect key="frame" x="101" y="265" width="399" height="32"/>
-                                                <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="28"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JjI-f2-Jyx">
-                                                <rect key="frame" x="290" y="204" width="20" height="20"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="3HA-Lq-b3s" firstAttribute="top" secondItem="ptO-Ov-yQf" secondAttribute="top" constant="176" id="1IO-Pl-OjR"/>
-                                            <constraint firstItem="3HA-Lq-b3s" firstAttribute="centerX" secondItem="ptO-Ov-yQf" secondAttribute="centerX" id="By8-AD-gHD"/>
-                                            <constraint firstItem="JjI-f2-Jyx" firstAttribute="top" secondItem="ptO-Ov-yQf" secondAttribute="top" constant="204" id="UiX-za-XYK"/>
-                                            <constraint firstItem="lbN-Hr-Kug" firstAttribute="centerX" secondItem="ptO-Ov-yQf" secondAttribute="centerX" id="YuK-l3-DVN"/>
-                                            <constraint firstItem="JjI-f2-Jyx" firstAttribute="centerX" secondItem="ptO-Ov-yQf" secondAttribute="centerX" id="hZS-qV-sv9"/>
-                                            <constraint firstItem="lbN-Hr-Kug" firstAttribute="top" secondItem="3HA-Lq-b3s" secondAttribute="bottom" constant="14" id="iSY-1O-IRY"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="VDQ-eO-hj1" secondAttribute="bottom" constant="70" id="03b-02-GgP"/>
-                                    <constraint firstAttribute="trailing" secondItem="ptO-Ov-yQf" secondAttribute="trailing" id="D1f-mM-mHc"/>
                                     <constraint firstItem="0FI-W6-ADa" firstAttribute="top" secondItem="TWv-NT-Zic" secondAttribute="bottom" constant="-3" id="MGK-yI-cru"/>
-                                    <constraint firstItem="ptO-Ov-yQf" firstAttribute="leading" secondItem="AGe-fm-HOD" secondAttribute="leading" id="PXQ-C8-H80"/>
                                     <constraint firstAttribute="trailing" secondItem="TWv-NT-Zic" secondAttribute="trailing" constant="20" id="TVN-ly-XDm"/>
-                                    <constraint firstItem="ptO-Ov-yQf" firstAttribute="top" secondItem="AGe-fm-HOD" secondAttribute="top" id="bVe-Xp-43a"/>
                                     <constraint firstItem="ogp-SG-WV4" firstAttribute="leading" secondItem="AGe-fm-HOD" secondAttribute="leading" constant="20" id="cGv-9f-qYI"/>
-                                    <constraint firstAttribute="bottom" secondItem="ptO-Ov-yQf" secondAttribute="bottom" id="dyf-QJ-6rz"/>
                                     <constraint firstItem="TWv-NT-Zic" firstAttribute="top" secondItem="ogp-SG-WV4" secondAttribute="bottom" constant="-4" id="eb8-Bv-7Ga"/>
                                     <constraint firstAttribute="trailing" secondItem="VDQ-eO-hj1" secondAttribute="trailing" constant="20" id="f1S-LM-z6Q"/>
                                     <constraint firstItem="TWv-NT-Zic" firstAttribute="top" secondItem="27u-aG-YQg" secondAttribute="bottom" constant="50" id="mBi-DT-lVD"/>

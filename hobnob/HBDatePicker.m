@@ -18,6 +18,7 @@
     if (datePicker)
         return;
     
+    // just UI setup for our code picker
     datePicker.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, datePicker.frame.size.width);
     datePicker = [[UIDatePicker alloc] init];
     [datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
@@ -29,15 +30,15 @@
     topBar.backgroundColor = [UIColor darkGrayColor];
     [self addSubview:topBar];
     
-    UIButton *done = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *done = [UIButton buttonWithType:UIButtonTypeSystem];
     [done setTitle:@"Done" forState:UIControlStateNormal];
-    done.frame = CGRectMake(20, 5, 45, 40);
+    done.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-65, 5, 45, 40);
     [topBar addSubview:done];
     [done setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    UIButton *cancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *cancel = [UIButton buttonWithType:UIButtonTypeSystem];
     [cancel setTitle:@"Cancel" forState:UIControlStateNormal];
-    cancel.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-65, 5, 55, 40);
+    cancel.frame = CGRectMake(20, 5, 55, 40);
     [topBar addSubview:cancel];
     [cancel setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     

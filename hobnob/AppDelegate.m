@@ -15,6 +15,12 @@
 @implementation AppDelegate
 
 
+- (NSInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    // Only allow portrait (standard behaviour)
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;
