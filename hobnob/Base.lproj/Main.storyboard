@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sTT-uu-849">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4eg-BN-rK9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -11,6 +11,7 @@
             <string>GrandHotel-Regular</string>
         </mutableArray>
         <mutableArray key="ostrich-regular.ttf">
+            <string>OstrichSans-Medium</string>
             <string>OstrichSans-Medium</string>
             <string>OstrichSans-Medium</string>
             <string>OstrichSans-Medium</string>
@@ -72,6 +73,9 @@
                                 <state key="normal" title="Let's send some invites!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="previewInvite:" destination="z3p-WO-t7v" eventType="touchUpInside" id="2RA-G4-9z3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gD-ra-qFo">
                                 <rect key="frame" x="20" y="327" width="160" height="41"/>
@@ -218,18 +222,44 @@
                                         <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="30"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptO-Ov-yQf">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TIME OF DAY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWv-NT-Zic">
                                         <rect key="frame" x="191" y="329" width="389" height="43"/>
                                         <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptO-Ov-yQf">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hob.png" translatesAutoresizingMaskIntoConstraints="NO" id="3HA-Lq-b3s">
+                                                <rect key="frame" x="263" y="176" width="75" height="75"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="W5c-Gw-yX6"/>
+                                                    <constraint firstAttribute="width" constant="75" id="YAB-O0-lmT"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="please wait while we render your video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbN-Hr-Kug">
+                                                <rect key="frame" x="101" y="265" width="399" height="32"/>
+                                                <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="28"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JjI-f2-Jyx">
+                                                <rect key="frame" x="290" y="204" width="20" height="20"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="3HA-Lq-b3s" firstAttribute="top" secondItem="ptO-Ov-yQf" secondAttribute="top" constant="176" id="1IO-Pl-OjR"/>
+                                            <constraint firstItem="3HA-Lq-b3s" firstAttribute="centerX" secondItem="ptO-Ov-yQf" secondAttribute="centerX" id="By8-AD-gHD"/>
+                                            <constraint firstItem="JjI-f2-Jyx" firstAttribute="top" secondItem="ptO-Ov-yQf" secondAttribute="top" constant="204" id="UiX-za-XYK"/>
+                                            <constraint firstItem="lbN-Hr-Kug" firstAttribute="centerX" secondItem="ptO-Ov-yQf" secondAttribute="centerX" id="YuK-l3-DVN"/>
+                                            <constraint firstItem="JjI-f2-Jyx" firstAttribute="centerX" secondItem="ptO-Ov-yQf" secondAttribute="centerX" id="hZS-qV-sv9"/>
+                                            <constraint firstItem="lbN-Hr-Kug" firstAttribute="top" secondItem="3HA-Lq-b3s" secondAttribute="bottom" constant="14" id="iSY-1O-IRY"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="VDQ-eO-hj1" secondAttribute="bottom" constant="70" id="03b-02-GgP"/>
                                     <constraint firstAttribute="trailing" secondItem="ptO-Ov-yQf" secondAttribute="trailing" id="D1f-mM-mHc"/>

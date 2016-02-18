@@ -23,6 +23,7 @@
     
     // video playback
     HBVideoPlayer *videoPlayer;
+    IBOutlet UIImageView *loadingScrum;
 }
 
 @property BOOL hasBunting;

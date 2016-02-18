@@ -35,6 +35,7 @@
 
 -(IBAction)pickStartDate:(id)sender;
 -(IBAction)pickEndDate:(id)sender;
+-(IBAction)previewInvite:(id)sender;
 
 -(void)processStartDate:(NSDate *)date;
 -(void)processEndDate:(NSDate *)date;
