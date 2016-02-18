@@ -31,6 +31,8 @@
 		4A6A4A431C74DDC000FCAE09 /* SDAVAssetExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A4A411C74DDC000FCAE09 /* SDAVAssetExportSession.m */; };
 		4A6A4A4C1C75447E00FCAE09 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A4A4A1C75447E00FCAE09 /* logo.png */; };
 		4A6A4A4D1C75447E00FCAE09 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A4A4B1C75447E00FCAE09 /* logo@2x.png */; };
+		4A8F1E5E1C76656D005E695C /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F1E5C1C76656D005E695C /* share.png */; };
+		4A8F1E5F1C76656D005E695C /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F1E5D1C76656D005E695C /* share@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		4A6A4A421C74DDC000FCAE09 /* SDAVAssetExportSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAVAssetExportSession.h; sourceTree = "<group>"; };
 		4A6A4A4A1C75447E00FCAE09 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		4A6A4A4B1C75447E00FCAE09 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		4A8F1E5C1C76656D005E695C /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		4A8F1E5D1C76656D005E695C /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 		4A6A4A291C74B4F600FCAE09 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				4A8F1E5C1C76656D005E695C /* share.png */,
+				4A8F1E5D1C76656D005E695C /* share@2x.png */,
 				4A094FB21C755514006F1C77 /* hob.png */,
 				4A094FB31C755514006F1C77 /* hob@2x.png */,
 				4A6A4A4A1C75447E00FCAE09 /* logo.png */,
@@ -323,6 +329,8 @@
 				4A6A4A251C74B4C200FCAE09 /* ostrich-regular.ttf in Resources */,
 				4A6A4A271C74B4E000FCAE09 /* champagne_vert.mov in Resources */,
 				4A6A4A021C74B46D00FCAE09 /* Main.storyboard in Resources */,
+				4A8F1E5F1C76656D005E695C /* share@2x.png in Resources */,
+				4A8F1E5E1C76656D005E695C /* share.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

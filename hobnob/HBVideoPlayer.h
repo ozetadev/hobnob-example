@@ -13,11 +13,14 @@
     Wrapper around video playback functions. Don't want to bloat the controllers.
     This video player can play any video that apple supports, and wraps together player, asset, and player layer
  */
-
+@protocol HBVideoPlayerDelegate
+-(void)userClosed;
+@end
 @interface HBVideoPlayer : UIView
 {
     AVPlayerLayer *playerLayer;
     AVPlayer *player;
+    UIButton *shareButton;
 }
 
 -(void)loadVideoSource:(NSURL *)source;
