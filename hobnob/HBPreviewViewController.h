@@ -11,7 +11,7 @@
 #import "HBVideoPlayer.h"
 #import "HBVideoRenderer.h"
 \
-@interface HBPreviewViewController : UIViewController
+@interface HBPreviewViewController : UIViewController <HBVideoPlayerDelegate>
 {
     IBOutlet UIView *viewToRender;
     
@@ -31,6 +31,7 @@
     
     IBOutlet UIImageView *logo;
     IBOutlet UILabel *tagline;
+    NSURL *outputFile;
 }
 
 @property BOOL hasBunting;

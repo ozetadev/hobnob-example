@@ -15,14 +15,17 @@
  */
 @protocol HBVideoPlayerDelegate
 -(void)userClosed;
+-(void)shareClicked;
 @end
 @interface HBVideoPlayer : UIView
 {
     AVPlayerLayer *playerLayer;
     AVPlayer *player;
     UIButton *shareButton;
+    AVURLAsset *assetToPlay;
 }
 
+@property (weak) id<HBVideoPlayerDelegate> delegate;
 -(void)loadVideoSource:(NSURL *)source;
 -(void)play;
 -(void)pause;

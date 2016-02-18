@@ -13,7 +13,7 @@
 
 -(void)loadVideoSource:(NSURL *)source {
     // sets up video player if we don't have one yet
-    AVURLAsset *assetToPlay = [AVURLAsset assetWithURL:source];
+     assetToPlay = [AVURLAsset assetWithURL:source];
 
     if (!player) {
         player = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:assetToPlay]];
@@ -68,8 +68,15 @@
     self.backgroundColor = [UIColor clearColor]; // don't want to bother you guys w/ random color when no video is loaded
     shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareButton setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
-    shareButton.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.width-20, 50, 66);
+    shareButton.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.height-20-25, 25, 33);
     [self addSubview:shareButton];
+    [shareButton addTarget:self action:@selector(shareClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)shareClicked:(id)sender {
+    if (_delegate) {
+        [_delegate shareClicked];
+    }
 }
 
 -(id)init {

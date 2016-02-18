@@ -93,14 +93,16 @@
     renderer = [[HBVideoRenderer alloc] init];
     NSString *source = [[NSBundle mainBundle] pathForResource:@"champagne_vert" ofType:@"mov"];
     
-    [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *outputFile, BOOL success, NSError *error) {
-        [self showVideo:outputFile];
+    [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *output, BOOL success, NSError *error) {
+        [self showVideo:output];
+        outputFile = output;
     }];
 }
 -(void)showVideo:(NSURL *)video {
     dispatch_async(dispatch_get_main_queue(), ^{
         videoPlayer = [[HBVideoPlayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen  mainScreen].bounds.size.height)];
         [videoPlayer loadVideoSource:video];
+        videoPlayer.delegate = self;
         
         [UIView animateWithDuration:.3 animations:^{
             logo.frame = CGRectMake(logo.frame.origin.x, -150, 75, 75);
@@ -126,6 +128,15 @@
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+-(void)shareClicked {
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[[AVURLAsset assetWithURL:outputFile]] applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
+-(void)userClosed {
+    
 }
 
 #pragma mark date utilities
