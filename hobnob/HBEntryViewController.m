@@ -94,13 +94,12 @@
 -(IBAction)previewInvite:(id)sender {
     HBPreviewViewController *previewView = (HBPreviewViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"preview"];
     
-    previewView.title = whatField.text;
+    previewView.titleOfEvent = whatField.text;
     previewView.startDate = startDate;
     previewView.endDate = endDate;
     previewView.eventLocation = whereField.text;
-    
+
     [self.navigationController pushViewController:previewView animated:YES];
-    
 }
 -(void)datePickerCancelled {
     [self hideDatePicker];
@@ -117,6 +116,17 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateStyle = NSDateFormatterMediumStyle;
     endLabel.text = [formatter stringFromDate:endDate];
+}
+
+// limit title to 60 char
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.text.length >= 60 && range.length == 0)
+    {
+        return NO; // return NO to not change text
+    }
+    else
+    {return YES;}
 }
 
 @end

@@ -14,11 +14,11 @@
 @end
 
 @implementation HBPreviewViewController
-@synthesize hasBunting = _hasBunting, eventTitle = _eventTitle, eventLocation = _eventLocation, startDate = _startDate, endDate = _endDate;
+@synthesize hasBunting = _hasBunting, titleOfEvent = _titleOfEvent, eventLocation = _eventLocation, startDate = _startDate, endDate = _endDate;
 
 #pragma mark getters
--(NSString *)eventTitle {
-    return _eventTitle;
+-(NSString *)titleOfEvent {
+    return _titleOfEvent;
 }
 
 -(NSString *)eventLocation {
@@ -35,9 +35,8 @@
 
 #pragma mark setters
 
--(void)setEventTitle:(NSString *)eventTitle {
-    _eventTitle = eventTitle;
-    eventTitleLabel.text = _eventTitle;
+-(void)settitleOfEvent:(NSString *)titleOfEvent {
+    _titleOfEvent = titleOfEvent;
 }
 
 -(void)setEventLocation:(NSString *)eventLocation {
@@ -46,7 +45,6 @@
 
 -(void)setStartDate:(NSDate *)startDate {
     _startDate = startDate;
-    dayOfWeek.text = [self weekdayFromDate:startDate];
 }
 
 -(void)setEndDate:(NSDate *)endDate {
@@ -67,9 +65,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.navigationController.navigationBar setHidden:TRUE];
-    
-    
     [eventTitleLabel setAdjustsFontSizeToFitWidth:YES];
+    eventTitleLabel.text = _titleOfEvent;
+    address.text = _eventLocation;
+    address.textColor = [UIColor whiteColor];
+    
+    if (!_endDate) { // single day foirè
+        dateTextLabel.text = [self restOfDateFromDate:_startDate];
+        dayOfWeek.text = [self weekdayFromDate:_startDate];
+        timeLabel.text = [self timeFromDate:_startDate];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,10 +87,26 @@
     return UIStatusBarStyleLightContent;
 }
 
+#pragma mark date utilities
+
 -(NSString *)weekdayFromDate:(NSDate *)date {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
     return [dateFormatter stringFromDate:date];
+}
+
+-(NSString *)restOfDateFromDate:(NSDate *)date {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:[NSString stringWithFormat:@"MMMM d"]];
+    return [dateFormatter stringFromDate:date];
+}
+
+-(NSString *)timeFromDate:(NSDate *)date {
+    
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+    timeFormatter.dateFormat = @"H";
+    
+   return [[timeFormatter stringFromDate: date] stringByAppendingString:@" O'CLOCK"];
 }
 
 @end

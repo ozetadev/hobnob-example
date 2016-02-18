@@ -53,6 +53,9 @@
                                 <rect key="frame" x="20" y="241" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <outlet property="delegate" destination="z3p-WO-t7v" id="hpp-sQ-fim"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where is your shindig?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-X2-7xf">
                                 <rect key="frame" x="20" y="285" width="560" height="30"/>
@@ -208,7 +211,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bunting_flyer_flourish.png" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-yx-Qrl">
                                         <rect key="frame" x="250" y="396" width="84" height="29"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDQ-eO-hj1">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="VDQ-eO-hj1">
                                         <rect key="frame" x="340" y="402" width="240" height="128"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -223,7 +226,7 @@
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TIME OF DAY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWv-NT-Zic">
                                         <rect key="frame" x="191" y="329" width="389" height="43"/>
-                                        <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="30"/>
+                                        <fontDescription key="fontDescription" name="OstrichSans-Medium" family="Ostrich Sans" pointSize="32"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -231,7 +234,8 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="VDQ-eO-hj1" secondAttribute="bottom" constant="70" id="03b-02-GgP"/>
-                                    <constraint firstItem="0FI-W6-ADa" firstAttribute="top" secondItem="TWv-NT-Zic" secondAttribute="bottom" constant="-3" id="MGK-yI-cru"/>
+                                    <constraint firstAttribute="trailing" secondItem="ogp-SG-WV4" secondAttribute="trailing" constant="20" id="7Dw-ye-BNr"/>
+                                    <constraint firstItem="0FI-W6-ADa" firstAttribute="top" secondItem="TWv-NT-Zic" secondAttribute="bottom" constant="2" id="MGK-yI-cru"/>
                                     <constraint firstAttribute="trailing" secondItem="TWv-NT-Zic" secondAttribute="trailing" constant="20" id="TVN-ly-XDm"/>
                                     <constraint firstItem="ogp-SG-WV4" firstAttribute="leading" secondItem="AGe-fm-HOD" secondAttribute="leading" constant="20" id="cGv-9f-qYI"/>
                                     <constraint firstItem="TWv-NT-Zic" firstAttribute="top" secondItem="ogp-SG-WV4" secondAttribute="bottom" constant="-4" id="eb8-Bv-7Ga"/>
@@ -255,9 +259,8 @@
                     </view>
                     <connections>
                         <outlet property="address" destination="VDQ-eO-hj1" id="q9h-KZ-zW9"/>
-                        <outlet property="dateLabel" destination="0FI-W6-ADa" id="U8P-qW-fK4"/>
+                        <outlet property="dateTextLabel" destination="0FI-W6-ADa" id="MIV-Ay-guO"/>
                         <outlet property="dayOfWeek" destination="27u-aG-YQg" id="D6h-xR-jAX"/>
-                        <outlet property="eventTitle" destination="ogp-SG-WV4" id="EyF-G0-6Xi"/>
                         <outlet property="eventTitleLabel" destination="ogp-SG-WV4" id="e3m-pN-hq5"/>
                         <outlet property="timeLabel" destination="TWv-NT-Zic" id="OcQ-kz-iKp"/>
                         <outlet property="viewToRender" destination="AGe-fm-HOD" id="KQP-Hh-3Dg"/>

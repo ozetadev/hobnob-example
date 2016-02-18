@@ -18,7 +18,7 @@
     IBOutlet UILabel *dayOfWeek;
     IBOutlet UILabel *eventTitleLabel;
     IBOutlet UILabel *timeLabel;
-    IBOutlet UILabel *dateLabel;
+    IBOutlet UILabel *dateTextLabel;
     IBOutlet UITextView *address;
     
     // video playback
@@ -27,7 +27,7 @@
 }
 
 @property BOOL hasBunting;
-@property (nonatomic, retain) NSString *eventTitle;
+@property (nonatomic, retain) NSString *titleOfEvent;
 @property (nonatomic, retain) NSString *eventLocation;
 @property (nonatomic, retain) NSDate *startDate;
 @property (nonatomic, retain) NSDate *endDate;
