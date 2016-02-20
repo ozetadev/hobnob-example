@@ -26,9 +26,7 @@
     [player pause];
     [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:player
      .currentItem];
-    player = Nil;
     videoPlayer = Nil;
-    [player replaceCurrentItemWithPlayerItem:Nil];
 
 }
 #pragma mark getters
@@ -120,6 +118,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         videoPlayer = [[HBVideoPlayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen  mainScreen].bounds.size.height)];
         [videoPlayer loadVideoSource:video];
+        [videoPlayer play];
         videoPlayer.delegate = self;
         
         [UIView animateWithDuration:.3 animations:^{
@@ -148,8 +147,8 @@
     return UIStatusBarStyleLightContent;
 }
 
--(void)shareClicked:(NSURL *)videoURL {
-    NSArray *activityItems = @[videoURL];
+-(void)shareClicked {
+    NSArray *activityItems = @[outputFile];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     [activityViewController setValue:@"Video" forKey:@"subject"];
     [self presentViewController:activityViewController animated:YES completion:nil];

@@ -15,7 +15,7 @@
  */
 @protocol HBVideoPlayerDelegate
 -(void)userClosed;
--(void)shareClicked:(NSURL *)videoURL;
+-(void)shareClicked;
 @end
 @interface HBVideoPlayer : UIView
 {
@@ -23,7 +23,7 @@
     AVPlayer *player;
     UIButton *shareButton;
     AVURLAsset *assetToPlay;
-    NSURL *source;
+    
     UIButton *xButton;
 }
 

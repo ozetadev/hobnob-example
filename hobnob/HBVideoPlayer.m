@@ -13,8 +13,7 @@
 
 -(void)loadVideoSource:(NSURL *)src {
     // sets up video player if we don't have one yet
-    assetToPlay = [AVURLAsset assetWithURL:source];
-    source = src;
+    assetToPlay = [AVURLAsset assetWithURL:src];
     if (!player) {
         player = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:assetToPlay]];
 
@@ -86,7 +85,7 @@
 
 -(void)shareClicked:(id)sender {
     if (_delegate) {
-        [_delegate shareClicked:source];
+        [_delegate shareClicked];
     }
 }
 
