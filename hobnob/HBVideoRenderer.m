@@ -137,6 +137,7 @@
      ^(void ) {
          if (assetExport.status == AVAssetExportSessionStatusCompleted) {
              [self exportDidFinish:assetExport];
+             [assetExport cancelExport];
          }
         }
      ];
@@ -147,6 +148,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString* VideoName = [NSString stringWithFormat:@"%@/final.mp4",documentsDirectory];
+    
     [[NSFileManager defaultManager] removeItemAtPath:VideoName error:Nil];
     
     finalOutput = [NSURL fileURLWithPath:VideoName];
@@ -163,7 +165,7 @@
     AVVideoCompressionPropertiesKey: @
         {
         AVVideoAverageBitRateKey: @6000000,
-        AVVideoProfileLevelKey: AVVideoProfileLevelH264HighAutoLevel,
+        AVVideoProfileLevelKey: AVVideoProfileLevelH264High40,
         },
     };
     encoder.audioSettings = @

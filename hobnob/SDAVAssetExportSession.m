@@ -246,10 +246,10 @@
                     CVPixelBufferRef renderBuffer = NULL;
                     CVPixelBufferPoolCreatePixelBuffer(NULL, self.videoPixelBufferAdaptor.pixelBufferPool, &renderBuffer);
                     [self.delegate exportSession:self renderFrame:pixelBuffer withPresentationTime:lastSamplePresentationTime toBuffer:renderBuffer];
-                    if (![self.videoPixelBufferAdaptor appendPixelBuffer:renderBuffer withPresentationTime:lastSamplePresentationTime])
+                   /* if (![self.videoPixelBufferAdaptor appendPixelBuffer:renderBuffer withPresentationTime:lastSamplePresentationTime])
                     {
                         error = YES;
-                    }
+                    }*/
                     CVPixelBufferRelease(renderBuffer);
                     handled = YES;
                 }

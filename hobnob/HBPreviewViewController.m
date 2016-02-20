@@ -21,14 +21,16 @@
      This is messy and would be cleaned up in production
      */
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    AVPlayer *player = [videoPlayer player];
-    [player pause];
-    [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
-    videoPlayer = Nil;
-    [videoPlayer.player replaceCurrentItemWithPlayerItem:Nil];
-    [[videoPlayer playerLayer] removeFromSuperlayer];
-
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AVPlayer *player = [videoPlayer player];
+        [player pause];
+        [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
+        videoPlayer = Nil;
+        [videoPlayer.player replaceCurrentItemWithPlayerItem:Nil];
+        [[videoPlayer playerLayer] removeFromSuperlayer];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    });
+    
 }
 #pragma mark getters
 -(NSString *)titleOfEvent {

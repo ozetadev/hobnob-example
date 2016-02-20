@@ -162,6 +162,18 @@
     endDate = Nil;
     startLabel.text = @"";
     endLabel.text = @"OPTIONAL";
+    
+    // get rid of files
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* VideoName = [NSString stringWithFormat:@"%@/hobnob.mp4",documentsDirectory];
+    [[NSFileManager defaultManager] removeItemAtPath:VideoName error:Nil];
+    
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *directory = [path objectAtIndex:0];
+    NSString* video = [NSString stringWithFormat:@"%@/final.mp4",directory];
+    [[NSFileManager defaultManager] removeItemAtPath:video error:Nil];
+
 }
 -(IBAction)textDidEnd:(UITextField *)sender {
     if (sender == whatField) {
