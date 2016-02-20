@@ -148,7 +148,7 @@
     startDate = Nil;
     endDate = Nil;
     startLabel.text = @"";
-    endLabel.text = @"OPTIONAL"
+    endLabel.text = @"OPTIONAL";
 }
 -(IBAction)textDidEnd:(UITextField *)sender {
     if (sender == whatField) {
