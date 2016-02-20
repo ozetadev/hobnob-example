@@ -17,8 +17,17 @@
 @synthesize hasBunting = _hasBunting, titleOfEvent = _titleOfEvent, eventLocation = _eventLocation, startDate = _startDate, endDate = _endDate;
 
 -(void)userClosed {
+    /*
+     This is messy and would be cleaned up in production
+     */
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
-    [videoPlayer loadVideoSource:Nil];
+    AVPlayer *player = [videoPlayer player];
+    [player pause];
+    [player.currentItem removeObserver:videoPlayer forKeyPath:@"status" context:Nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:player
+     .currentItem];
+
 }
 #pragma mark getters
 -(NSString *)titleOfEvent {
@@ -88,9 +97,6 @@
 
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-}
--(void)pushToVideo {
-   
 }
 
 -(void)viewDidAppear:(BOOL)animated {

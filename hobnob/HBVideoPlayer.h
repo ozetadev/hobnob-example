@@ -32,5 +32,5 @@
 -(void)play;
 -(void)pause;
 -(void)seek:(CMTime)timeRef; // cmtime is the bain of my existence
-
+-(AVPlayer *)player;
 @end

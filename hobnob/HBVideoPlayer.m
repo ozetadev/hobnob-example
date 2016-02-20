@@ -39,6 +39,9 @@
     [player play];
 }
 
+-(AVPlayer *)player {
+    return player;
+}
 -(void)finishedPlaying:(AVPlayerItem *)sender {
     [player seekToTime:kCMTimeZero];
     [player play];
