@@ -37,6 +37,10 @@
     [self.layer insertSublayer:playerLayer atIndex:0];
     [player play];
 }
+-(void)dealloc {
+    NSLog(@"VIDEO PLAYER GONE");
+    
+}
 -(AVPlayerLayer *)playerLayer {
     return playerLayer;
 }

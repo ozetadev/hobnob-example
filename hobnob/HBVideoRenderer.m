@@ -12,6 +12,7 @@
 
 - (void)exportSession:(SDAVAssetExportSession *)exportSession renderFrame:(CVPixelBufferRef)pixelBuffer withPresentationTime:(CMTime)presentationTime toBuffer:(CVPixelBufferRef)renderBuffer {
     
+    
     /*
      This is custom written to add the photo effect that you guys use on your invitations. It essentially takes each frame (pixel buffer) and then applies the filter, and then appends it to the video. This is not a particularly efficient approach, if I were to do this with more time I would use an OpenGL alternative, such as GPUImage
      */
@@ -24,6 +25,7 @@
     /*
         Most of the time I would seperate these processes but they are too closely linked in this instance.
      */
+    
     
     CIImage *theImage = [CIImage imageWithCVPixelBuffer:pixelBuffer]; // image from buffer
     CIFilter *filter = [CIFilter filterWithName:@"CIPhotoEffectInstant"
@@ -175,10 +177,9 @@
     AVSampleRateKey: @44100,
     AVEncoderBitRateKey: @128000,
     };
-    
+
     [encoder exportAsynchronouslyWithCompletionHandler:^
      {
-         encoder.cutItOut = TRUE;
          if (encoder.status == AVAssetExportSessionStatusCompleted)
          {
              NSLog(@"Video export succeeded");

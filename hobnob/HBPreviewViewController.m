@@ -28,6 +28,7 @@
         videoPlayer = Nil;
         [videoPlayer.player replaceCurrentItemWithPlayerItem:Nil];
         [[videoPlayer playerLayer] removeFromSuperlayer];
+        [videoPlayer pause];
         [self.navigationController popToRootViewControllerAnimated:YES];
     });
     
@@ -105,12 +106,14 @@
 
 -(void)viewDidAppear:(BOOL)animated {
 
-    renderer = [[HBVideoRenderer alloc] init];
-    NSString *source = [[NSBundle mainBundle] pathForResource:@"champagne_vert" ofType:@"mov"];
-    
-    [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *output, BOOL success, NSError *error) {
-        [self showVideo:output];
-    }];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        renderer = [[HBVideoRenderer alloc] init];
+        NSString *source = [[NSBundle mainBundle] pathForResource:@"champagne_vert" ofType:@"mov"];
+        
+        [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *output, BOOL success, NSError *error) {
+            [self showVideo:output];
+        }];
+    });
 }
 
 -(void)viewDidDisappear:(BOOL)animated {

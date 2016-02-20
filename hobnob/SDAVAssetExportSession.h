@@ -23,7 +23,7 @@
  * limited set of Apple provided presets.
  *
  * After you have initialized an export session with the asset that contains the source media, video and audio
- * settings, and the output file type (outputFileType), you can start the export running by invoking 
+ * settings, and the output file type (outputFileType), you can start the export running by invoking
  * `exportAsynchronouslyWithCompletionHandler:`. Because the export is performed asynchronously, this method
  * returns immediately — you can observe progress to check on the progress.
  *
@@ -63,7 +63,7 @@
  * You can observe this property using key-value observing.
  */
 @property (nonatomic, copy) NSString *outputFileType;
-@property (nonatomic) BOOL cutItOut;
+
 /**
  * The URL of the export session’s output.
  *
