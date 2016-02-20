@@ -68,7 +68,7 @@
     self.backgroundColor = [UIColor clearColor]; // don't want to bother you guys w/ random color when no video is loaded
     shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareButton setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
-    shareButton.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.height-25, 45, 55);
+    shareButton.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.height-20-20-25, 45, 55);
     shareButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
     [self addSubview:shareButton];
     [shareButton addTarget:self action:@selector(shareClicked:) forControlEvents:UIControlEventTouchUpInside];
