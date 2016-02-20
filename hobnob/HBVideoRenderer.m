@@ -53,6 +53,10 @@
                  toCVPixelBuffer:renderBuffer
                           bounds:theImage.extent
                       colorSpace:CGColorSpaceCreateDeviceRGB()];
+        
+        temporaryContext = Nil;
+        theImage = Nil;
+        options = Nil;
     }
 }
 -(void)renderVideoFromSource:(NSString *)filePath withOverlay:(UIView *)overlay callback:(RenderCallback)callback {
@@ -117,7 +121,6 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString* VideoName = [NSString stringWithFormat:@"%@/hobnob.mp4",documentsDirectory];
     
-    
     exportURL = [NSURL fileURLWithPath:VideoName];
     
     // AVAssetExporrtSession can't overrwrite video, so we have to delete the old one (sry not sry)
@@ -146,6 +149,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString* VideoName = [NSString stringWithFormat:@"%@/final.mp4",documentsDirectory];
+    unlink([VideoName UTF8String]);
     
     [[NSFileManager defaultManager] removeItemAtPath:VideoName error:Nil];
     

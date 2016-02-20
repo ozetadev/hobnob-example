@@ -106,6 +106,7 @@
     [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *output, BOOL success, NSError *error) {
         [self showVideo:output];
         outputFile = output;
+        renderer = Nil;
     }];
 }
 -(void)showVideo:(NSURL *)video {
