@@ -31,7 +31,10 @@
     theImage = [filter outputImage]; // applying filter
     
     // for memory sake I only create 1 context per render
-    temporaryContext = [CIContext contextWithOptions:nil];
+    EAGLContext *glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    NSMutableDictionary *glOptions = [[NSMutableDictionary alloc] init];
+    [glOptions setObject: [NSNull null] forKey: kCIContextWorkingColorSpace];
+    temporaryContext = [CIContext contextWithEAGLContext:glContext options:glOptions];
     
     // picture settings
     CVPixelBufferRef pbuff = NULL;
