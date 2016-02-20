@@ -24,9 +24,9 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
     AVPlayer *player = [videoPlayer player];
     [player pause];
-    [player.currentItem removeObserver:videoPlayer forKeyPath:@"status" context:Nil];
     [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:player
      .currentItem];
+    videoPlayer = Nil;
 
 }
 #pragma mark getters
