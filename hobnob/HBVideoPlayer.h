@@ -23,7 +23,7 @@
     AVPlayer *player;
     UIButton *shareButton;
     AVURLAsset *assetToPlay;
-    
+    AVPlayerLayer *layer;
     UIButton *xButton;
 }
 -(AVPlayerLayer *)playerLayer;
@@ -33,4 +33,5 @@
 -(void)pause;
 -(void)seek:(CMTime)timeRef; // cmtime is the bain of my existence
 -(AVPlayer *)player;
+-(void)destroy;
 @end

@@ -32,14 +32,29 @@
 
     
     // sets up player layer (this actually outputs the video content)
-    playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-    playerLayer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-    [self.layer insertSublayer:playerLayer atIndex:0];
+    layer = [AVPlayerLayer playerLayerWithPlayer:player];
+    layer.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    [self.layer insertSublayer:layer atIndex:0];
     [player play];
 }
 -(void)dealloc {
     NSLog(@"VIDEO PLAYER GONE");
     
+}
+
+-(void)destroy {
+    // AVPLAYER IS SUCH A MESS WITH ENCODING VIDEO LATER
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [player pause];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
+        [self.player replaceCurrentItemWithPlayerItem:Nil];
+        [[self playerLayer] removeFromSuperlayer];
+        [self pause];
+        playerLayer = Nil;
+        layer = Nil;
+    });
+
 }
 -(AVPlayerLayer *)playerLayer {
     return playerLayer;

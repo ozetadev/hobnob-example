@@ -17,21 +17,8 @@
 @synthesize hasBunting = _hasBunting, titleOfEvent = _titleOfEvent, eventLocation = _eventLocation, startDate = _startDate, endDate = _endDate;
 
 -(void)userClosed {
-    /*
-     This is messy and would be cleaned up in production
-     */
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        AVPlayer *player = [videoPlayer player];
-        [player pause];
-        [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
-        videoPlayer = Nil;
-        [videoPlayer.player replaceCurrentItemWithPlayerItem:Nil];
-        [[videoPlayer playerLayer] removeFromSuperlayer];
-        [videoPlayer pause];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    });
-    
+    [videoPlayer destroy];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 #pragma mark getters
 -(NSString *)titleOfEvent {
