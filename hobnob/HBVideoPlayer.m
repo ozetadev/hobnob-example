@@ -44,17 +44,15 @@
 
 -(void)destroy {
     // AVPLAYER IS SUCH A MESS WITH ENCODING VIDEO LATER
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [player pause];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
-        [self.player replaceCurrentItemWithPlayerItem:Nil];
-        [[self playerLayer] removeFromSuperlayer];
-        [self pause];
-        playerLayer = Nil;
-        layer = Nil;
-    });
-
+    [player pause];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
+    [self.player replaceCurrentItemWithPlayerItem:Nil];
+    [[self playerLayer] removeFromSuperlayer];
+    [self pause];
+    playerLayer = Nil;
+    layer = Nil;
+    [layer removeFromSuperlayer];
+    player = Nil;
 }
 -(AVPlayerLayer *)playerLayer {
     return playerLayer;

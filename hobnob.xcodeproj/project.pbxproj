@@ -35,6 +35,7 @@
 		4A8F1E5F1C76656D005E695C /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F1E5D1C76656D005E695C /* share@2x.png */; };
 		4A8F1E621C766AA4005E695C /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F1E601C766AA4005E695C /* x.png */; };
 		4A8F1E631C766AA4005E695C /* x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F1E611C766AA4005E695C /* x@2x.png */; };
+		4AB29E751C7888370071405C /* HBPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB29E741C7888370071405C /* HBPreviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		4A8F1E5D1C76656D005E695C /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		4A8F1E601C766AA4005E695C /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		4A8F1E611C766AA4005E695C /* x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x@2x.png"; sourceTree = "<group>"; };
+		4AB29E741C7888370071405C /* HBPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HBPreviewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			children = (
 				4A6A4A2A1C74B54000FCAE09 /* HBPreviewViewController.h */,
 				4A6A4A2B1C74B54000FCAE09 /* HBPreviewViewController.m */,
+				4AB29E741C7888370071405C /* HBPreviewViewController.xib */,
 			);
 			name = "Flyer Preview";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				4A8F1E631C766AA4005E695C /* x@2x.png in Resources */,
 				4A8F1E5F1C76656D005E695C /* share@2x.png in Resources */,
 				4A8F1E5E1C76656D005E695C /* share.png in Resources */,
+				4AB29E751C7888370071405C /* HBPreviewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
