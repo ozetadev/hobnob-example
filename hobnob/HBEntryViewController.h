@@ -16,31 +16,36 @@
 @interface HBEntryViewController : UIViewController <HBDatePickerDelegate>
 {
     // user input
-    IBOutlet UITextField *whereField;
-    IBOutlet UITextField *whatField;
+    IBOutlet UITextField *whereField; // input for location
+    IBOutlet UITextField *whatField; // input for event title
+    IBOutlet UILabel *startLabel; // display of start date
+    IBOutlet UILabel *endLabel; // display of end date
+
+    // date input
     IBOutlet HBDatePicker *datePicker;
     IBOutlet HBDatePicker *endPicker;
     
     // date input output
-    IBOutlet UILabel *whenLabel;
-    
     IBOutlet UIView *inputView;
     
+    // action-specific objects
     IBOutlet UIButton *startButton;
     IBOutlet UIButton *endButton;
     IBOutlet UIButton *nextButton;
     
+    // dates stored in the heap until we need them
     NSDate *startDate;
     NSDate *endDate;
     
-    IBOutlet UILabel *startLabel;
-    IBOutlet UILabel *endLabel;
+   
 }
 
+// methods for triggering actions
 -(IBAction)pickStartDate:(id)sender;
 -(IBAction)pickEndDate:(id)sender;
 -(IBAction)previewInvite:(id)sender;
 
+// helper methods involving date and time
 -(void)processStartDate:(NSDate *)date;
 -(void)processEndDate:(NSDate *)date;
 @end

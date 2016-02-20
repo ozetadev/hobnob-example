@@ -21,6 +21,10 @@
      
      */
     
+    /*
+        Most of the time I would seperate these processes but they are too closely linked in this instance.
+     */
+    
     CIImage *theImage = [CIImage imageWithCVPixelBuffer:pixelBuffer]; // image from buffer
     CIFilter *filter = [CIFilter filterWithName:@"CIPhotoEffectInstant"
                                   keysAndValues: kCIInputImageKey, theImage, nil]; // filter to apply
@@ -52,7 +56,13 @@
     }
 }
 -(void)renderVideoFromSource:(NSString *)filePath withOverlay:(UIView *)overlay callback:(RenderCallback)callback {
-    NSLog(@"TEST");
+    
+    /*
+        This is a very simpe AVMutableComposition. The video and audio tracks are added, and then the overlay (our text) is added to the video layer, then the video is rendered out
+     
+        Note: Combining filtering and texting would be much more efficient given time
+     */
+    
     // apologies for the messiness of this method -- there's a lot going on
     
     exportCallback = callback; // saving for later use

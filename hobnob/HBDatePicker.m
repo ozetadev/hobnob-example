@@ -51,6 +51,7 @@
     topLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.height, 1)];
     topLine.backgroundColor = [UIColor whiteColor];
     [topBar addSubview:topLine];
+    self.backgroundColor = [UIColor whiteColor];
 
 }
 
