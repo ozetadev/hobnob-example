@@ -36,8 +36,6 @@
     // dates stored in the heap until we need them
     NSDate *startDate;
     NSDate *endDate;
-    
-   
 }
 
 // methods for triggering actions
@@ -48,4 +46,7 @@
 // helper methods involving date and time
 -(void)processStartDate:(NSDate *)date;
 -(void)processEndDate:(NSDate *)date;
+
+// text field methods
+-(IBAction)textDidEnd:(UITextField *)sender;
 @end

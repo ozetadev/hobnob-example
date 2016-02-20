@@ -137,4 +137,15 @@
     {return YES;}
 }
 
+-(IBAction)textDidEnd:(UITextField *)sender {
+    if (sender == whatField) {
+        [whatField resignFirstResponder];
+        [whereField becomeFirstResponder];
+    }
+    else {
+        [whereField resignFirstResponder];
+        [whatField resignFirstResponder];
+    }
+}
+
 @end

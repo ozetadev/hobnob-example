@@ -22,9 +22,9 @@
     datePicker.frame = CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, datePicker.frame.size.width);
     datePicker.backgroundColor = [UIColor colorWithHue:0.603 saturation:0.304 brightness:0.271 alpha:1.000];
     datePicker = [[UIDatePicker alloc] init];
-    [datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+    [datePicker setValue:[UIColor colorWithHue:0.603 saturation:0.304 brightness:0.271 alpha:1.000] forKey:@"textColor"];
     self.backgroundColor = [UIColor blackColor];
-    self.frame = CGRectMake(0, 0, datePicker.frame.size.width, datePicker.frame.size.height+50);
+    self.frame = CGRectMake(0, 0, datePicker.frame.size.width, datePicker.frame.size.height);
     [self addSubview:datePicker];
     
     topBar = [[UIView alloc] initWithFrame:CGRectMake(0, -10, self.frame.size.width+60, 50)];

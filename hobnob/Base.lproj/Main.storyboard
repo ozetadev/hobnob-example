@@ -54,6 +54,9 @@
                                 <rect key="frame" x="20" y="241" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <action selector="textDidEnd:" destination="z3p-WO-t7v" eventType="editingDidEndOnExit" id="Kfw-1X-7f6"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where is your shindig?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBM-X2-7xf">
                                 <rect key="frame" x="20" y="285" width="560" height="30"/>
@@ -62,6 +65,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <action selector="textDidEnd:" destination="z3p-WO-t7v" eventType="editingDidEndOnExit" id="Rd7-ju-5Mb"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLO-eX-o2h">
                                 <rect key="frame" x="169" y="466" width="263" height="50"/>
@@ -133,7 +139,7 @@
                             <constraint firstItem="3gD-ra-qFo" firstAttribute="leading" secondItem="EMf-GY-gIe" secondAttribute="leadingMargin" id="1OS-bg-Tgu"/>
                             <constraint firstItem="VBM-X2-7xf" firstAttribute="top" secondItem="3Fd-SB-BTh" secondAttribute="bottom" constant="14" id="2Kr-hP-1HW"/>
                             <constraint firstItem="3Fd-SB-BTh" firstAttribute="top" secondItem="LbN-iD-lAJ" secondAttribute="bottom" constant="47" id="5Yf-xo-WBb"/>
-                            <constraint firstItem="frm-bO-nXX" firstAttribute="top" secondItem="PNV-BH-Uw7" secondAttribute="bottom" constant="61" id="Bs0-Q0-urc"/>
+                            <constraint firstItem="frm-bO-nXX" firstAttribute="top" secondItem="PNV-BH-Uw7" secondAttribute="bottom" constant="61" id="7e1-BC-ILC"/>
                             <constraint firstItem="BGu-CJ-Mzg" firstAttribute="top" secondItem="3gD-ra-qFo" secondAttribute="bottom" constant="9" id="Dg8-x0-2VT"/>
                             <constraint firstItem="N38-GN-gbD" firstAttribute="top" secondItem="RXg-c6-6Dm" secondAttribute="bottom" constant="8" id="Ev0-fB-GTc"/>
                             <constraint firstItem="kLO-eX-o2h" firstAttribute="centerX" secondItem="EMf-GY-gIe" secondAttribute="centerX" id="HWg-Ks-2f7"/>
@@ -143,7 +149,7 @@
                             <constraint firstItem="N38-GN-gbD" firstAttribute="trailing" secondItem="EMf-GY-gIe" secondAttribute="trailingMargin" id="adJ-Tb-82h"/>
                             <constraint firstItem="3gD-ra-qFo" firstAttribute="top" secondItem="VBM-X2-7xf" secondAttribute="bottom" constant="12" id="cb0-Td-3or"/>
                             <constraint firstItem="N38-GN-gbD" firstAttribute="top" secondItem="RXg-c6-6Dm" secondAttribute="bottom" constant="8" id="cfs-6e-Q5c"/>
-                            <constraint firstItem="DDu-14-ONf" firstAttribute="top" secondItem="kLO-eX-o2h" secondAttribute="bottom" constant="84" id="iAI-Vf-Xcj"/>
+                            <constraint firstItem="DDu-14-ONf" firstAttribute="top" secondItem="kLO-eX-o2h" secondAttribute="bottom" constant="84" id="j7Z-JB-mn6"/>
                             <constraint firstItem="RXg-c6-6Dm" firstAttribute="trailing" secondItem="EMf-GY-gIe" secondAttribute="trailingMargin" id="jdI-82-NgP"/>
                             <constraint firstItem="LbN-iD-lAJ" firstAttribute="top" secondItem="frm-bO-nXX" secondAttribute="bottom" constant="8" id="mpJ-ro-0yx"/>
                             <constraint firstItem="LbN-iD-lAJ" firstAttribute="centerX" secondItem="EMf-GY-gIe" secondAttribute="centerX" id="s4R-ok-APM"/>
