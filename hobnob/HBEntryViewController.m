@@ -118,7 +118,7 @@
         return; // aint nobody making an invite without my persmission
     }
     
-    HBPreviewViewController *previewView = [[HBPreviewViewController alloc] initWithNibName:@"HBPreviewViewController.xib" bundle:Nil];
+    HBPreviewViewController *previewView = [[HBPreviewViewController alloc] initWithNibName:@"HBPreviewViewController" bundle:[NSBundle mainBundle]];
     
     previewView.titleOfEvent = whatField.text;
     previewView.startDate = startDate;
