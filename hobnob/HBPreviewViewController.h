@@ -37,6 +37,7 @@
     // video rendering
     HBVideoRenderer *renderer;
     NSURL *outputFile;
+    NSDate *created;
 }
 
 // properties so entry view can pass along variables

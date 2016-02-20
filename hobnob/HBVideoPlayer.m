@@ -11,10 +11,10 @@
 @implementation HBVideoPlayer
 
 
--(void)loadVideoSource:(NSURL *)source {
+-(void)loadVideoSource:(NSURL *)src {
     // sets up video player if we don't have one yet
-     assetToPlay = [AVURLAsset assetWithURL:source];
-
+    assetToPlay = [AVURLAsset assetWithURL:source];
+    source = src;
     if (!player) {
         player = [AVPlayer playerWithPlayerItem:[AVPlayerItem playerItemWithAsset:assetToPlay]];
 
@@ -86,7 +86,7 @@
 
 -(void)shareClicked:(id)sender {
     if (_delegate) {
-        [_delegate shareClicked];
+        [_delegate shareClicked:source];
     }
 }
 

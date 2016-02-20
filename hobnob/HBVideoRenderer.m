@@ -31,10 +31,7 @@
     theImage = [filter outputImage]; // applying filter
     
     // for memory sake I only create 1 context per render
-    EAGLContext *glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    NSMutableDictionary *glOptions = [[NSMutableDictionary alloc] init];
-    [glOptions setObject: [NSNull null] forKey: kCIContextWorkingColorSpace];
-    temporaryContext = [CIContext contextWithEAGLContext:glContext options:glOptions];
+    temporaryContext = [CIContext contextWithOptions:nil];
     
     // picture settings
     CVPixelBufferRef pbuff = NULL;
@@ -57,10 +54,8 @@
                           bounds:theImage.extent
                       colorSpace:CGColorSpaceCreateDeviceRGB()];
         
-        temporaryContext = Nil;
-        theImage = Nil;
-        options = Nil;
     }
+    
 }
 -(void)renderVideoFromSource:(NSString *)filePath withOverlay:(UIView *)overlay callback:(RenderCallback)callback {
     
@@ -124,6 +119,7 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString* VideoName = [NSString stringWithFormat:@"%@/hobnob.mp4",documentsDirectory];
     
+    
     exportURL = [NSURL fileURLWithPath:VideoName];
     
     // AVAssetExporrtSession can't overrwrite video, so we have to delete the old one (sry not sry)
@@ -141,7 +137,6 @@
      ^(void ) {
          if (assetExport.status == AVAssetExportSessionStatusCompleted) {
              [self exportDidFinish:assetExport];
-             [assetExport cancelExport];
          }
         }
      ];
@@ -152,14 +147,12 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString* VideoName = [NSString stringWithFormat:@"%@/final.mp4",documentsDirectory];
-    unlink([VideoName UTF8String]);
-    
     [[NSFileManager defaultManager] removeItemAtPath:VideoName error:Nil];
     
     finalOutput = [NSURL fileURLWithPath:VideoName];
     
     encoder = [SDAVAssetExportSession.alloc initWithAsset:[AVURLAsset assetWithURL:exportURL]];
-    encoder.outputFileType = AVFileTypeMPEG4;
+    encoder.outputFileType = AVFileTypeQuickTimeMovie;
     encoder.outputURL = finalOutput;
     encoder.delegate = self;
     encoder.videoSettings = @
@@ -170,7 +163,7 @@
     AVVideoCompressionPropertiesKey: @
         {
         AVVideoAverageBitRateKey: @6000000,
-        AVVideoProfileLevelKey: AVVideoProfileLevelH264High40,
+        AVVideoProfileLevelKey: AVVideoProfileLevelH264HighAutoLevel,
         },
     };
     encoder.audioSettings = @

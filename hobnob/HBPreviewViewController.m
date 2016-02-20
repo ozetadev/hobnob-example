@@ -26,7 +26,9 @@
     [player pause];
     [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:player
      .currentItem];
+    player = Nil;
     videoPlayer = Nil;
+    [player replaceCurrentItemWithPlayerItem:Nil];
 
 }
 #pragma mark getters
@@ -97,19 +99,24 @@
 
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
+
     renderer = [[HBVideoRenderer alloc] init];
     NSString *source = [[NSBundle mainBundle] pathForResource:@"champagne_vert" ofType:@"mov"];
     
     [renderer renderVideoFromSource:source withOverlay:viewToRender callback:^(NSURL *output, BOOL success, NSError *error) {
         [self showVideo:output];
-        outputFile = output;
-        renderer = Nil;
     }];
 }
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
 -(void)showVideo:(NSURL *)video {
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         videoPlayer = [[HBVideoPlayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen  mainScreen].bounds.size.height)];
         [videoPlayer loadVideoSource:video];
@@ -141,8 +148,8 @@
     return UIStatusBarStyleLightContent;
 }
 
--(void)shareClicked {
-    NSArray *activityItems = @[outputFile];
+-(void)shareClicked:(NSURL *)videoURL {
+    NSArray *activityItems = @[videoURL];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     [activityViewController setValue:@"Video" forKey:@"subject"];
     [self presentViewController:activityViewController animated:YES completion:nil];

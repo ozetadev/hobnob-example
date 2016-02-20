@@ -105,6 +105,19 @@
     }];
 }
 -(IBAction)previewInvite:(id)sender {
+    
+    // ensures button cannot be pressed without enough data present
+    if ([whereField.text isEqualToString:@""] || [whatField.text isEqualToString:@""] || !startDate) {
+        [UIView animateWithDuration:.2 animations:^{
+            nextButton.backgroundColor = [UIColor redColor];
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:.2 animations:^{
+               nextButton.backgroundColor = [UIColor colorWithHue:0.393 saturation:0.451 brightness:0.745 alpha:1.000];
+            }];
+        }];
+        return; // aint nobody making an invite without my persmission
+    }
+    
     HBPreviewViewController *previewView = (HBPreviewViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"preview"];
     
     previewView.titleOfEvent = whatField.text;
