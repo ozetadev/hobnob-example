@@ -37,7 +37,9 @@
     [self.layer insertSublayer:playerLayer atIndex:0];
     [player play];
 }
-
+-(AVPlayerLayer *)playerLayer {
+    return playerLayer;
+}
 -(AVPlayer *)player {
     return player;
 }

@@ -26,7 +26,7 @@
     
     UIButton *xButton;
 }
-
+-(AVPlayerLayer *)playerLayer;
 @property (weak) id<HBVideoPlayerDelegate> delegate;
 -(void)loadVideoSource:(NSURL *)source;
 -(void)play;

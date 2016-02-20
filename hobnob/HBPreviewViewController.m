@@ -24,9 +24,10 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
     AVPlayer *player = [videoPlayer player];
     [player pause];
-    [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:player
-     .currentItem];
+    [[NSNotificationCenter defaultCenter] removeObserver:videoPlayer name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
     videoPlayer = Nil;
+    [videoPlayer.player replaceCurrentItemWithPlayerItem:Nil];
+    [[videoPlayer playerLayer] removeFromSuperlayer];
 
 }
 #pragma mark getters
@@ -114,7 +115,7 @@
     [super viewDidDisappear:animated];
 }
 -(void)showVideo:(NSURL *)video {
-    
+    outputFile = video;
     dispatch_async(dispatch_get_main_queue(), ^{
         videoPlayer = [[HBVideoPlayer alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen  mainScreen].bounds.size.height)];
         [videoPlayer loadVideoSource:video];
