@@ -24,6 +24,9 @@
     startButton.layer.cornerRadius = 4.0;
     endButton.layer.cornerRadius = 4.0;
     nextButton.layer.cornerRadius = 4.0;
+    
+    whatField.layer.cornerRadius = 2.0;
+    whereField.layer.cornerRadius = 2.0;
 }
 
 - (void)didReceiveMemoryWarning {

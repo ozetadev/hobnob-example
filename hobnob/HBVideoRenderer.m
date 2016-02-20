@@ -135,6 +135,7 @@
      ^(void ) {
          if (assetExport.status == AVAssetExportSessionStatusCompleted) {
              [self exportDidFinish:assetExport];
+             [assetExport cancelExport];
          }
         }
      ];

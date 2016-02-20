@@ -73,7 +73,7 @@
     [self addSubview:shareButton];
     [shareButton addTarget:self action:@selector(shareClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    xButton = [[UIButton alloc] initWithFrame:CGRectMake(25, 30, 45, 45)];
+    xButton = [[UIButton alloc] initWithFrame:CGRectMake(18, 30, 45, 45)];
     xButton.contentEdgeInsets = shareButton.contentEdgeInsets;
     [xButton setImage:[UIImage imageNamed:@"x"] forState:UIControlStateNormal];
     [self addSubview:xButton];
