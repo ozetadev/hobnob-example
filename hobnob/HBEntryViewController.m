@@ -25,9 +25,11 @@
     endButton.layer.cornerRadius = 4.0;
     nextButton.layer.cornerRadius = 4.0;
     
-    whatField.layer.cornerRadius = 2.0;
-    whereField.layer.cornerRadius = 2.0;
-}
+    // crude way of making text input look correct
+    whereField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
+    whatField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
+
+  }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -140,6 +142,14 @@
     {return YES;}
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    whatField.text = @"";
+    whereField.text = @"";
+    startDate = Nil;
+    endDate = Nil;
+    startLabel.text = @"";
+    endLabel.text = @"OPTIONAL"
+}
 -(IBAction)textDidEnd:(UITextField *)sender {
     if (sender == whatField) {
         [whatField resignFirstResponder];
