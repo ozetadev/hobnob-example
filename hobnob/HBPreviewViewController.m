@@ -20,50 +20,6 @@
     [videoPlayer destroy];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
-#pragma mark getters
--(NSString *)titleOfEvent {
-    return _titleOfEvent;
-}
-
--(NSString *)eventLocation {
-    return _eventLocation;
-}
-
--(NSDate *)startDate {
-    return _startDate;
-}
-
--(NSDate *)endDate {
-    return _endDate;
-}
-
-#pragma mark setters
-
--(void)settitleOfEvent:(NSString *)titleOfEvent {
-    _titleOfEvent = titleOfEvent;
-}
-
--(void)setEventLocation:(NSString *)eventLocation {
-    _eventLocation = eventLocation;
-}
-
--(void)setStartDate:(NSDate *)startDate {
-    _startDate = startDate;
-}
-
--(void)setEndDate:(NSDate *)endDate {
-    _endDate = endDate;
-}
-
-#pragma mark utility methods
-
--(void)setHasBunting:(BOOL)hasBunting {
-    _hasBunting = hasBunting;
-}
-
--(BOOL)hasBunting {
-    return _hasBunting;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
